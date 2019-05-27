@@ -13,11 +13,11 @@ start = timeit.default_timer()
 fig = plt.figure()
 plt.axis('off')
 
-# x and y axes to build Argand plane.
+# x and y axes to build Argand plane. This controls resolution of the image.
 x = np.linspace(-1.5,1.5,500)
 y = np.linspace(-1,1,500)
 
-# List of parameters to control the image.
+# List of parameters to control the varying Julia sets.
 parameters = np.linspace(0,2*np.pi,500)
 
 # List of images
@@ -38,7 +38,7 @@ for t in parameters:
         notdone = np.less(c.real*c.real + c.imag*c.imag, 4.0)
         output[notdone] = it
         # The line below determines which function we use:
-        c[notdone] = c[notdone]**5 + 0.544*cmath.exp(1j*t)
+        c[notdone] = c[notdone]**2 + 0.7885*cmath.exp(1j*t)
     output[output == 100-1] = 0.01
 
     # Animation needs an image, not an array of numbers.
@@ -57,7 +57,7 @@ ani = animation.ArtistAnimation(fig, images, interval=1000./50., blit=True,
 
 ### DO NOT OVERWRITE!!!
 #plt.savefig('julia_ani2.png')
-#ani.save('julia_ani_test.gif', writer='imagemagick', fps=30)
+ani.save('julia_animation.mp4', writer='ffmpeg', fps=20)
 plt.show()
 stop = timeit.default_timer()
 print 'Time: ', stop - start
