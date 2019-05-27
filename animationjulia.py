@@ -45,19 +45,26 @@ for t in parameters:
     # Before we can animate, we have to turn each array into an image.
     plt_im = plt.imshow(output, cmap='hot',extent=[-1.5, 1.5, -1, 1], animated = True)
 
+
+    # This block is here for viewing purposes. To give an idea of how long
+    # the process will take once running. Updates viewer everytime an image
+    # is processed and put into the list of images.
     os.system("cls")
     print 'There are %d remaining images to process' % (len(parameters) - count)
     images.append([plt_im])
     count += 1
 
+#... Finshed.
 print 'All data uploaded to the list.'
+stop = timeit.default_timer()
+print 'Time: ', stop - start
 
+
+# ArtistAnimation does all of the stiching together of the frames for us.
 ani = animation.ArtistAnimation(fig, images, interval=1000./50., blit=True,
                                 repeat_delay=0)
 
 ### DO NOT OVERWRITE!!!
 #plt.savefig('julia_ani2.png')
-ani.save('julia_animation.mp4', writer='ffmpeg', fps=20)
+#ani.save('julia_animation.mp4', writer='ffmpeg', fps=20)
 plt.show()
-stop = timeit.default_timer()
-print 'Time: ', stop - start
