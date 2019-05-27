@@ -13,8 +13,8 @@ import cmath
 from matplotlib.pyplot import *
 
 # x and y axes to build Argand plane.
-x = np.linspace(-1.5,1.5,1000)
-y = np.linspace(-1,1,1000)
+x = np.linspace(-1.5,1.5,500)
+y = np.linspace(-1,1,500)
 
 # Argand plane.
 c = x[np.newaxis,:] + 1j*y[:,np.newaxis]
@@ -50,7 +50,8 @@ output[output == 100-1] = 0.01
 # Displays the figure.
 figure = figure(figsize=[15,10])
 axis('off')
+title('z = z**2 + 0.7885exp(1.85i)')
 # Color maps: 'gray'and 'hot' are best.
 imshow(output, cmap='hot',extent=[-1.5, 1.5, -1, 1])
-#savefig('julia3.png')
+savefig('julia1_withEQ.png')
 show()
