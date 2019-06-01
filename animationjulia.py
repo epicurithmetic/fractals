@@ -38,7 +38,9 @@ for t in parameters:
         notdone = np.less(c.real*c.real + c.imag*c.imag, 4.0)
         output[notdone] = it
         # The line below determines which function we use:
-        c[notdone] = c[notdone]**2 + 0.7885*cmath.exp(1j*t)
+        # Customisation can be done by changing the right-hand side of the
+        # equation i.e. power of z and the constant factor. 
+        c[notdone] = c[notdone]**2 + complex(0.285,0.01)*cmath.exp(1j*t)
     output[output == 100-1] = 0.01
 
     # Animation needs an image, not an array of numbers.
@@ -66,5 +68,5 @@ ani = animation.ArtistAnimation(fig, images, interval=1000./50., blit=True,
 
 ### DO NOT OVERWRITE!!!
 #plt.savefig('julia_ani2.png')
-#ani.save('julia_animation.mp4', writer='ffmpeg', fps=20)
+ani.save('julia_ani_explore.mp4', writer='ffmpeg', fps=20)
 plt.show()
