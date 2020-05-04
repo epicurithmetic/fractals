@@ -1,6 +1,6 @@
 # Fractals
 
-Fractals are beautiful. These wonderful images, derived from relatively simple mathematics, look amazing and set the mind wondering. In this repository I have collected a few scripts which can be used to generate a number of different fractals. James Stewart (https://github.com/James-Stuart) helped me get started with his code of generating the Mandelbrot set. I adjusted it in order to create many other Julia sets. 
+Fractals are beautiful. These wonderful images, derived from relatively simple mathematics, look amazing and set the mind wondering. In this repository I have collected a few scripts which can be used to generate a number of different fractals. James Stewart (https://github.com/James-Stuart) helped me get started with his code to generate the Mandelbrot set. I adjusted it in order to create many other Julia sets. 
 
 ## Julia Sets
 
